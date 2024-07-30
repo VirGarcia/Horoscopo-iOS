@@ -36,6 +36,20 @@ class ListViewController: UIViewController, UITableViewDataSource {
                 return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           // Preguntamos cual es el identificador del segue
+           if segue.identifier == "navigateToDetail" {
+               // Obtenemos el viewController de destino
+               let viewController = segue.destination as! DetailViewController
+               // Obtenemos la celda seleccionada
+               let indexPath = tableView.indexPathForSelectedRow!
+               // Asignamos en detalle el horoscopo que corresponde a la celda seleccionada
+               viewController.horoscope = horoscopeList[indexPath.row]
+               // Deseleccionamos la celda para que no aparezca marcada
+               tableView.deselectRow(at: indexPath, animated: false)
+           }
+       }
+    
     
 
 

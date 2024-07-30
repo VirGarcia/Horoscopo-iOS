@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4aG-Ol-pYF">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--List View Controller-->
+        <!--Horoscopo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ListViewController" customModule="Horoscopo_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="102" estimatedRowHeight="102" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xOG-vK-Krn">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="102" id="dvC-0E-Yeb" customClass="HoroscopeViewCell" customModule="Horoscopo_iOS" customModuleProvider="target">
@@ -51,6 +51,7 @@
                                             <outlet property="datesLabel" destination="mba-nv-zYD" id="wkg-Pt-fHw"/>
                                             <outlet property="logoImageView" destination="CBZ-3d-aSK" id="OmK-JK-SxK"/>
                                             <outlet property="nameLabel" destination="wz7-DJ-97D" id="TDs-Tk-Sgn"/>
+                                            <segue destination="nMt-rV-106" kind="show" identifier="navigateToDetail" id="AU9-WY-fb1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -65,13 +66,102 @@
                             <constraint firstItem="xOG-vK-Krn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xIS-Lz-0hx"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Horoscopo" id="ri0-2L-eyr"/>
                     <connections>
                         <outlet property="tableView" destination="xOG-vK-Krn" id="c4x-2r-knA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135.1145038167939" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="823.66412213740455" y="17.605633802816904"/>
+        </scene>
+        <!--Detalle-->
+        <scene sceneID="Nua-Gv-qhd">
+            <objects>
+                <viewController id="nMt-rV-106" customClass="DetailViewController" customModule="Horoscopo_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mga-PP-qxL">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAB-fG-kd7" userLabel="Content View">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Hz-qd-etO">
+                                        <rect key="frame" x="76" y="8" width="241" height="241"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="1Hz-qd-etO" secondAttribute="height" multiplier="1:1" id="mrb-Ma-4mF"/>
+                                        </constraints>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dD-Ws-1Hv">
+                                        <rect key="frame" x="0.0" y="249" width="393" height="466"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7J-0A-jHd" userLabel="Name Label">
+                                                <rect key="frame" x="8" y="8" width="377" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dates Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUh-Nd-9il" userLabel="Dates Label">
+                                                <rect key="frame" x="8" y="56" width="377" height="24"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="5dD-Ws-1Hv" firstAttribute="leading" secondItem="UAB-fG-kd7" secondAttribute="leading" id="1WH-xf-Wfu"/>
+                                    <constraint firstItem="5dD-Ws-1Hv" firstAttribute="top" secondItem="1Hz-qd-etO" secondAttribute="bottom" id="2Oe-ze-p6M"/>
+                                    <constraint firstAttribute="bottom" secondItem="5dD-Ws-1Hv" secondAttribute="bottom" id="L7B-XM-oWs"/>
+                                    <constraint firstAttribute="trailing" secondItem="5dD-Ws-1Hv" secondAttribute="trailing" id="OzE-Dh-ZfJ"/>
+                                    <constraint firstItem="1Hz-qd-etO" firstAttribute="top" secondItem="UAB-fG-kd7" secondAttribute="top" constant="8" id="QP3-cu-pGO"/>
+                                    <constraint firstAttribute="trailing" secondItem="1Hz-qd-etO" secondAttribute="trailing" constant="76" id="j7F-YE-NHy"/>
+                                    <constraint firstItem="1Hz-qd-etO" firstAttribute="leading" secondItem="UAB-fG-kd7" secondAttribute="leading" constant="76" id="mLP-80-IDz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="z0B-Cb-WIr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UAB-fG-kd7" firstAttribute="top" secondItem="z0B-Cb-WIr" secondAttribute="top" id="EJw-Ut-8Xg"/>
+                            <constraint firstItem="z0B-Cb-WIr" firstAttribute="bottom" secondItem="UAB-fG-kd7" secondAttribute="bottom" id="Xrc-YW-rTE"/>
+                            <constraint firstItem="UAB-fG-kd7" firstAttribute="leading" secondItem="z0B-Cb-WIr" secondAttribute="leading" id="i3f-xZ-R2t"/>
+                            <constraint firstItem="UAB-fG-kd7" firstAttribute="trailing" secondItem="z0B-Cb-WIr" secondAttribute="trailing" id="wpN-Bn-KSb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detalle" id="M4M-ky-FzW"/>
+                    <connections>
+                        <outlet property="datesLabel" destination="pUh-Nd-9il" id="Si3-9h-8io"/>
+                        <outlet property="logoImageView" destination="1Hz-qd-etO" id="QFv-sF-pLm"/>
+                        <outlet property="nameLabel" destination="C7J-0A-jHd" id="Wv5-Nv-Rlx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g72-4A-GfM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1715.2671755725189" y="18.30985915492958"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dAJ-m5-O2D">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4aG-Ol-pYF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pvK-AN-Mjh">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="AQn-0h-TNl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Egg-oC-KCr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-103.05343511450381" y="17.605633802816904"/>
         </scene>
     </scenes>
     <resources>
