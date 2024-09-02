@@ -30,7 +30,7 @@ class ListViewController: UIViewController, UITableViewDataSource {
                 let horoscope = horoscopeList[indexPath.row]
                 
                 cell.nameLabel.text = horoscope.name
-                cell.logoImageView.image = horoscope.logo
+                cell.logoImageView.image = horoscope.image
                 cell.datesLabel.text = horoscope.dates
                 
                 return cell

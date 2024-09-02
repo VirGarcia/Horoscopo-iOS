@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -45,10 +46,17 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="leg-zQ-b1F" userLabel="Favorite Heart">
+                                                    <rect key="frame" x="315" y="42" width="21" height="67"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="tintColor" systemColor="systemRedColor"/>
+                                                    <imageReference key="image" image="heart.fill" catalog="system" variableValue="0.80000000000000004"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="datesLabel" destination="mba-nv-zYD" id="wkg-Pt-fHw"/>
+                                            <outlet property="favoriteImageView" destination="leg-zQ-b1F" id="zE5-bt-Ynu"/>
                                             <outlet property="logoImageView" destination="CBZ-3d-aSK" id="OmK-JK-SxK"/>
                                             <outlet property="nameLabel" destination="wz7-DJ-97D" id="TDs-Tk-Sgn"/>
                                             <segue destination="nMt-rV-106" kind="show" identifier="navigateToDetail" id="AU9-WY-fb1"/>
@@ -102,15 +110,27 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dates Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUh-Nd-9il" userLabel="Dates Label">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Dates Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUh-Nd-9il" userLabel="Dates Label">
                                                 <rect key="frame" x="8" y="56" width="377" height="24"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="shW-kf-u8Q" userLabel="Description Text View">
+                                                <rect key="frame" x="0.0" y="133" width="393" height="128"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="shW-kf-u8Q" firstAttribute="leading" secondItem="5dD-Ws-1Hv" secondAttribute="leading" id="GQM-fF-YFa"/>
+                                            <constraint firstItem="shW-kf-u8Q" firstAttribute="top" secondItem="pUh-Nd-9il" secondAttribute="bottom" constant="8" id="PWG-hl-AqM"/>
+                                            <constraint firstAttribute="trailing" secondItem="shW-kf-u8Q" secondAttribute="trailing" id="Pj2-6X-lzc"/>
+                                            <constraint firstAttribute="bottom" secondItem="shW-kf-u8Q" secondAttribute="bottom" id="SUG-lU-3we"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -134,9 +154,15 @@
                             <constraint firstItem="UAB-fG-kd7" firstAttribute="trailing" secondItem="z0B-Cb-WIr" secondAttribute="trailing" id="wpN-Bn-KSb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Detalle" id="M4M-ky-FzW"/>
+                    <navigationItem key="navigationItem" title="Detalle" id="M4M-ky-FzW" userLabel="Navigation Item">
+                        <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="jia-Od-aUf" userLabel="Favorite Button Item">
+                            <color key="tintColor" systemColor="systemRedColor"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="datesLabel" destination="pUh-Nd-9il" id="Si3-9h-8io"/>
+                        <outlet property="descriptionTextView" destination="shW-kf-u8Q" id="1eJ-7P-Dj3"/>
+                        <outlet property="favoriteButtonItem" destination="M4M-ky-FzW" id="nuQ-QZ-mlr"/>
                         <outlet property="logoImageView" destination="1Hz-qd-etO" id="QFv-sF-pLm"/>
                         <outlet property="nameLabel" destination="C7J-0A-jHd" id="Wv5-Nv-Rlx"/>
                     </connections>
@@ -165,8 +191,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart" catalog="system" width="128" height="107"/>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
