@@ -103,21 +103,20 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dD-Ws-1Hv">
                                         <rect key="frame" x="0.0" y="249" width="393" height="466"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7J-0A-jHd" userLabel="Name Label">
-                                                <rect key="frame" x="8" y="8" width="377" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7J-0A-jHd" userLabel="Name Label">
+                                                <rect key="frame" x="8" y="8" width="377" height="30"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Dates Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUh-Nd-9il" userLabel="Dates Label">
-                                                <rect key="frame" x="8" y="56" width="377" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dates Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUh-Nd-9il" userLabel="Dates Label">
+                                                <rect key="frame" x="8" y="46" width="377" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="shW-kf-u8Q" userLabel="Description Text View">
-                                                <rect key="frame" x="0.0" y="133" width="393" height="128"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="shW-kf-u8Q" userLabel="Description Text View">
+                                                <rect key="frame" x="0.0" y="78" width="393" height="388"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -126,10 +125,16 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="C7J-0A-jHd" secondAttribute="trailing" constant="8" id="0xs-cq-sc5"/>
+                                            <constraint firstItem="C7J-0A-jHd" firstAttribute="leading" secondItem="5dD-Ws-1Hv" secondAttribute="leading" constant="8" id="4sV-nI-6hz"/>
+                                            <constraint firstItem="pUh-Nd-9il" firstAttribute="leading" secondItem="5dD-Ws-1Hv" secondAttribute="leading" constant="8" id="Erk-xu-vxX"/>
                                             <constraint firstItem="shW-kf-u8Q" firstAttribute="leading" secondItem="5dD-Ws-1Hv" secondAttribute="leading" id="GQM-fF-YFa"/>
                                             <constraint firstItem="shW-kf-u8Q" firstAttribute="top" secondItem="pUh-Nd-9il" secondAttribute="bottom" constant="8" id="PWG-hl-AqM"/>
                                             <constraint firstAttribute="trailing" secondItem="shW-kf-u8Q" secondAttribute="trailing" id="Pj2-6X-lzc"/>
+                                            <constraint firstItem="pUh-Nd-9il" firstAttribute="top" secondItem="C7J-0A-jHd" secondAttribute="bottom" constant="8" id="RyR-9W-Akl"/>
                                             <constraint firstAttribute="bottom" secondItem="shW-kf-u8Q" secondAttribute="bottom" id="SUG-lU-3we"/>
+                                            <constraint firstAttribute="trailing" secondItem="pUh-Nd-9il" secondAttribute="trailing" constant="8" id="Uel-Px-xiF"/>
+                                            <constraint firstItem="C7J-0A-jHd" firstAttribute="top" secondItem="5dD-Ws-1Hv" secondAttribute="top" constant="8" id="Wmv-oV-qtd"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -157,12 +162,15 @@
                     <navigationItem key="navigationItem" title="Detalle" id="M4M-ky-FzW" userLabel="Navigation Item">
                         <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="jia-Od-aUf" userLabel="Favorite Button Item">
                             <color key="tintColor" systemColor="systemRedColor"/>
+                            <connections>
+                                <action selector="setFavorite:" destination="nMt-rV-106" id="cYV-NI-eSe"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="datesLabel" destination="pUh-Nd-9il" id="Si3-9h-8io"/>
                         <outlet property="descriptionTextView" destination="shW-kf-u8Q" id="1eJ-7P-Dj3"/>
-                        <outlet property="favoriteButtonItem" destination="M4M-ky-FzW" id="nuQ-QZ-mlr"/>
+                        <outlet property="favoriteButtonItem" destination="jia-Od-aUf" id="aAI-S8-0Ml"/>
                         <outlet property="logoImageView" destination="1Hz-qd-etO" id="QFv-sF-pLm"/>
                         <outlet property="nameLabel" destination="C7J-0A-jHd" id="Wv5-Nv-Rlx"/>
                     </connections>
