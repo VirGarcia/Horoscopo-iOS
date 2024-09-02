@@ -15,7 +15,7 @@ class HoroscopeViewCell: UITableViewCell {
     
     @IBOutlet weak var datesLabel: UILabel!
     
-   @IBOutlet weak var favoriteImageView: UIImageView!
+    @IBOutlet weak var favoriteImageView: UIImageView!
     
     //estos dos métodos por ahora no van a hacer falta
     /*override func awakeFromNib() {

@@ -92,7 +92,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAB-fG-kd7" userLabel="Content View">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Hz-qd-etO">
                                         <rect key="frame" x="76" y="8" width="241" height="241"/>
@@ -101,7 +101,7 @@
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dD-Ws-1Hv">
-                                        <rect key="frame" x="0.0" y="249" width="393" height="466"/>
+                                        <rect key="frame" x="0.0" y="249" width="393" height="417"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C7J-0A-jHd" userLabel="Name Label">
                                                 <rect key="frame" x="8" y="8" width="377" height="30"/>
@@ -115,13 +115,36 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="shW-kf-u8Q" userLabel="Description Text View">
-                                                <rect key="frame" x="0.0" y="78" width="393" height="388"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="shW-kf-u8Q" userLabel="Description Text View">
+                                                <rect key="frame" x="0.0" y="78" width="393" height="339"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="69p-rV-WDv">
+                                                <rect key="frame" x="0.0" y="380" width="393" height="44"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                <items>
+                                                    <barButtonItem style="plain" id="3y6-g8-dOr">
+                                                        <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="3iL-xo-AMU">
+                                                            <rect key="frame" x="16" y="5" width="85.333333333333329" height="34.333333333333336"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="arrowshape.left.fill" catalog="system" title="Prev"/>
+                                                        </button>
+                                                    </barButtonItem>
+                                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="KQc-5l-K3k"/>
+                                                    <barButtonItem style="plain" id="9MA-Gp-25u">
+                                                        <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="Pod-Cr-OkF">
+                                                            <rect key="frame" x="275" y="5" width="102" height="34.333333333333336"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="arrowshape.right.fill" catalog="system" imagePlacement="trailing" title="Next"/>
+                                                        </button>
+                                                    </barButtonItem>
+                                                </items>
+                                            </toolbar>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -159,6 +182,7 @@
                             <constraint firstItem="UAB-fG-kd7" firstAttribute="trailing" secondItem="z0B-Cb-WIr" secondAttribute="trailing" id="wpN-Bn-KSb"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detalle" id="M4M-ky-FzW" userLabel="Navigation Item">
                         <barButtonItem key="rightBarButtonItem" image="heart" catalog="system" id="jia-Od-aUf" userLabel="Favorite Button Item">
                             <color key="tintColor" systemColor="systemRedColor"/>
@@ -167,6 +191,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="datesLabel" destination="pUh-Nd-9il" id="Si3-9h-8io"/>
                         <outlet property="descriptionTextView" destination="shW-kf-u8Q" id="1eJ-7P-Dj3"/>
@@ -199,6 +224,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
+        <image name="arrowshape.right.fill" catalog="system" width="128" height="104"/>
         <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <systemColor name="labelColor">
