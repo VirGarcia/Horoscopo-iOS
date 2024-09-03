@@ -34,7 +34,7 @@ class HoroscopeProvider {
            return getAllHoroscopes().filter { $0.id == id }.first!
        }
        
-       static func getIndexOf(horoscope: Horoscope) -> Int {
+    static func getIndexOf(horoscope: Horoscope) -> Int {
            return getAllHoroscopes().firstIndex(where: {$0.id == horoscope.id})!
        }
     

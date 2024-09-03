@@ -50,6 +50,7 @@ class ListViewController: UIViewController, UITableViewDataSource {
                let indexPath = tableView.indexPathForSelectedRow!
                // Asignamos en detalle el horoscopo que corresponde a la celda seleccionada
                viewController.horoscope = horoscopeList[indexPath.row]
+               viewController.horoscopeIndex = indexPath.row
                // Deseleccionamos la celda para que no aparezca marcada
                tableView.deselectRow(at: indexPath, animated: false)
            }
